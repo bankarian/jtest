@@ -51,3 +51,9 @@ Divided into fewest groups: [0, 1, 3] [2, 4, 5], so the output is 2 groups.
 > Solution
 
 Construct a graph from mutex array, then color it.
+
+## P5
+Implement an IEEE float triming machanim.
+eg:
+1.0100, reserve 1 decimal => 1.0
+1.1100, reserve 1 decimal => 10.0
