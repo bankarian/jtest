@@ -57,3 +57,11 @@ Implement an IEEE float triming machanim.
 eg:
 1.0100, reserve 1 decimal => 1.0
 1.1100, reserve 1 decimal => 10.0
+
+
+## P6
+Given a senario that there are lots of events, each event has 2 properties: 
+1. time, indicating when the event happened
+2. type, indicating the type
+
+Please provide a fucntion that finds out the top-K existing event types in a time window [a, b].
