@@ -30,7 +30,7 @@ public class Solution6_1 {
     // I use ArrayList + binary search instead of SkipList,
     // which is less tricky to code.
 
-    static class Event {
+    public static class Event {
         int time;
         int type;
         Event(int time, int type) {
