@@ -1,15 +1,16 @@
-import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Solution7 {
     public static void main(String[] args) {
         MasterContext ctx = new MasterContext();
         String[] ss = { "can I take this orange", "orange is my favorite fruit", "fruit is beneficial to our health" };
-        ctx.countWords(List.of(ss)).whenComplete((res, err) -> {
+        ctx.runJob(List.of(ss)).whenComplete((res, err) -> {
             for (Map.Entry<String, Integer> entry : ctx.result.entrySet()) {
                 System.out.println(entry.getKey() + "\t" + entry.getValue());
             }
@@ -18,17 +19,26 @@ public class Solution7 {
 }
 
 class MasterContext {
-    Queue<Intermediate> intermediates = new LinkedList<>();
-    Map<String, Integer> result = new HashMap<>();
-
-    CompletableFuture<Void> countWords(List<String> lines) {
-        return CompletableFuture.runAsync(() -> {
+    ConcurrentMap<String, Integer> result = new ConcurrentHashMap<>();
+    private BlockingQueue<Intermediate> intermediates = new LinkedBlockingQueue<>();
+    
+    CompletableFuture<Void> runJob(List<String> lines) {
+        CompletableFuture<Void> mapFuture = CompletableFuture.runAsync(() -> {
             for (String line : lines) {
                 map(line);
             }
-        }).thenRun(() -> {
-            reduce();
         });
+
+        CompletableFuture<Void> reduceFuture = CompletableFuture.runAsync(() -> {
+            while (!mapFuture.isDone() || !intermediates.isEmpty()) {
+                Intermediate intermediate = intermediates.poll();
+                if (intermediate != null) {
+                    reduce(intermediate);
+                }
+            }  
+        });
+
+        return CompletableFuture.allOf(mapFuture, reduceFuture);
     }
 
     private void map(String line) {
@@ -38,10 +48,8 @@ class MasterContext {
         }
     }
 
-    private void reduce() {
-        for (Intermediate intermediate : intermediates) {
-            result.put(intermediate.word, result.getOrDefault(intermediate.word, 0) + intermediate.value);
-        }
+    private void reduce(Intermediate intermediate) {
+        result.put(intermediate.word, result.getOrDefault(intermediate.word, 0) + intermediate.value);
     }
 }
 
