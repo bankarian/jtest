@@ -69,3 +69,6 @@ Please provide a fucntion that finds out the top-K existing event types in a tim
 
 ## P7
 Implement the word counter example in MapReduce thesis.
+
+## P8
+Implement LRU.
