@@ -72,3 +72,5 @@ Implement the word counter example in MapReduce thesis.
 
 ## P8
 Implement LRU.
+
+PS: implement thread-safe LRU.
