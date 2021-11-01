@@ -10,20 +10,20 @@ public class Solution15 {
 
     String findSubString(String s, String t) {
         for (char c: t.toCharArray()) {
-            targetChars.put(c, targetChars.getOrDefault(c, 0) + 1);
+            target.put(c, target.getOrDefault(c, 0) + 1);
         }
 
         Window res = new Window(0, s.length() + 1);
         Window sliding = new Window(0, 0);
         while (sliding.right < s.length()) {
             char ch = s.charAt(sliding.right++);
-            charInWindow.put(ch, charInWindow.getOrDefault(ch, 0) + 1);
+            inWindow.put(ch, inWindow.getOrDefault(ch, 0) + 1);
 
             while (containsAll(t)) {
                 res = Window.min(res, sliding);
                 int oldLeft = sliding.left++;
                 ch = s.charAt(oldLeft);
-                charInWindow.put(ch, charInWindow.get(ch) - 1);
+                inWindow.put(ch, inWindow.get(ch) - 1);
             }
         }
         if (res.size() < s.length() + 1) {
@@ -33,17 +33,17 @@ public class Solution15 {
     }
 
     // char -> exist times
-    Map<Character, Integer> charInWindow = new HashMap<>();
+    Map<Character, Integer> inWindow = new HashMap<>();
 
     // char -> exist times
-    Map<Character, Integer> targetChars = new HashMap<>();
+    Map<Character, Integer> target = new HashMap<>();
 
     boolean containsAll(String t) {
-        for (char ch: targetChars.keySet()) {
-            if (!charInWindow.containsKey(ch)) {
+        for (char ch: target.keySet()) {
+            if (!inWindow.containsKey(ch)) {
                 return false;
             }
-            if (charInWindow.get(ch) < targetChars.get(ch)) {
+            if (inWindow.get(ch) < target.get(ch)) {
                 return false;
             }
         }
