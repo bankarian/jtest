@@ -13,22 +13,20 @@ public class Solution15 {
             targetChars.put(c, targetChars.getOrDefault(c, 0) + 1);
         }
 
-        Window res = new Window(0, s.length());
+        Window res = new Window(0, s.length() + 1);
         Window sliding = new Window(0, 0);
-        boolean hasAns = false;
         while (sliding.right < s.length()) {
             char ch = s.charAt(sliding.right++);
             charInWindow.put(ch, charInWindow.getOrDefault(ch, 0) + 1);
 
             while (containsAll(t)) {
-                hasAns = true;
                 res = Window.min(res, sliding);
                 int oldLeft = sliding.left++;
                 ch = s.charAt(oldLeft);
                 charInWindow.put(ch, charInWindow.get(ch) - 1);
             }
         }
-        if (hasAns) {
+        if (res.size() < s.length() + 1) {
             return s.substring(res.left, res.right);
         }
         return "";
