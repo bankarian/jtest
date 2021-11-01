@@ -39,6 +39,7 @@ public class Solution11 {
                 pq.poll();
                 pq.offer(interval.end);
             } else {
+                // need more conference
                 pq.offer(interval.end);
             }
         });
