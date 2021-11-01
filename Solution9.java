@@ -61,6 +61,7 @@ class RecordContext {
 
     private List<Index> inIndexs;
 
+    // create an index on 'inTime'
     private void createIndexs() {
         inIndexs = new ArrayList<>(records.size());
         for (int i = 0; i < records.size(); i++) {
