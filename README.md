@@ -108,3 +108,6 @@ Provide and algorithm to calculate how many goods are invalid.
 
 ## P13
 Conver camelcase naming string to a underscore naming string.
+
+## P14
+Given several sets of 32-bit int numbers, the numbers in each set are not repeated. Please merge the sets that have intersections.
