@@ -100,3 +100,8 @@ Only the filled cells need to be validated according to the mentioned rules.
 Given an array of meeting time intervals intervals where intervals[i] = [starti, endi], return the minimum number of conference rooms required.
 
 ## P12
+There are n goods, each good has 3 properties a, b, c.
+
+For good_i, if there is good_j that aj > ai, bj > bi, cj > ci, then good_i is marked as invalid.
+
+Provide and algorithm to calculate how many goods are invalid.
