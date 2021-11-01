@@ -111,3 +111,8 @@ Conver camelcase naming string to a underscore naming string.
 
 ## P14
 Given several sets of 32-bit int numbers, the numbers in each set are not repeated. Please merge the sets that have intersections.
+
+## P15
+Given two strings s and t , return the minimum substring of s such that every character in t (including duplicates) is included in the substring. If there is no such substring, return the empty string "".
+
+A substring is a contiguous sequence of characters within the string.
