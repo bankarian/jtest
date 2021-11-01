@@ -74,3 +74,12 @@ Implement the word counter example in MapReduce thesis.
 Implement LRU.
 
 PS: implement thread-safe LRU.
+
+## P9
+There is a batch of order records, and the data includes the order ID, entry time, and departure time.
+
+Enter a time A, and you need to find all records that meet the time range of entering and leaving the store in this batch of records (A is greater than or equal to the time of entering the store, and A is less than or equal to the time of leaving the store).
+
+The time complexity of a single query should be lgN.
+
+Note that the order ID should be output in ascending order
