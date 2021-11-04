@@ -24,7 +24,7 @@ public class Solution18 {
         p.next = first;
 
         while (size > 0) {
-            int steps = m % size == 0 ? m : m % size;
+            int steps = m > size ? m % size : m;
             for (int i = 1; i < steps; i++) {
                 p = p.next;
             }
