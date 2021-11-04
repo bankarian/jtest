@@ -122,3 +122,17 @@ A substring is a contiguous sequence of characters within the string.
 
 ## P16
 Remove duplicate element in a sorted list.
+
+## P17
+Find the median from sorted int-stream.
+
+If the current size of the stream is even, there is no middle value and the median is the mean of the two middle values.
+
+Note that the stream can either be ascending or descending.
+
+Follow up:
+1. If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+2. If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
+
+## P18
+约瑟夫生死游戏问题
