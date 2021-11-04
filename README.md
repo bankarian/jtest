@@ -135,4 +135,17 @@ Follow up:
 2. If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 
 ## P18
-约瑟夫生死游戏问题
+Josephus Problem
+
+There are N people sit in a table, numbered from 1 to N, and begin reporting number from the 1st person.
+
+The number reported also starts from 1, the person who reports M should leave, then the next member continues to report the number from 1.
+
+Reproduce this process (the departure order), or find the number of the last member present
+
+## 19
+Describe how you could use a single array to implement three stacks.
+
+You should implement push(stackNum, value)、pop(stackNum)、isEmpty(stackNum)、peek(stackNum) methods. stackNum is the index of the stack. value is the value that pushed to the stack.
+
+The constructor requires a stackSize parameter, which represents the size of each stack.
