@@ -8,7 +8,7 @@ public class Solution18 {
 
     public static void main(String[] args) {
         new Solution18().solve(10, 3)
-                        .forEach(System.out::println);
+                        .forEach(e -> System.out.printf("->%d", e));
     }
 
     List<Integer> solve(int n, int m) {
