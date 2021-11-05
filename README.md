@@ -134,7 +134,7 @@ Follow up:
 1. If all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 2. If 99% of all integer numbers from the stream are in the range [0, 100], how would you optimize your solution?
 
-## P18
+## P18 HARD!
 Josephus Problem
 
 There are N people sit in a table, numbered from 1 to N, and begin reporting number from the 1st person.
