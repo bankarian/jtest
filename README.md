@@ -149,3 +149,6 @@ Describe how you could use a single array to implement three stacks.
 You should implement push(stackNum, value)、pop(stackNum)、isEmpty(stackNum)、peek(stackNum) methods. stackNum is the index of the stack. value is the value that pushed to the stack.
 
 The constructor requires a stackSize parameter, which represents the size of each stack.
+
+## 20
+Implement a Trie url router.
