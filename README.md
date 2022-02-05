@@ -156,3 +156,9 @@ Implement a Trie url router.
 
 ## 21
 Serialize and deserial a binary-tree.
+
+## 22
+Realize a structure to effectively store one-dimensional sparse matrix(or vector), and support matrix multipication.
+
+Follow up:
+What if to store dense matrix?
